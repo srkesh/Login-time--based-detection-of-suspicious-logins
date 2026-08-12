@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Predict Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🛡 <span>Secure Login ML</span>
+    </div>
+
+    <ul class="nav-links">
+
+       <li><a href="/">Home</a></li>
+       <li><a class="active" href="/predict">Predict</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+       <li><a href="/about">About</a></li>
+
+    </ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>Login Prediction</h1>
+
+<p>Enter the login details below.</p>
+
+<br><br>
+
+<form action="/predict" method="POST" class="predict-form">
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Username</label>
+<input type="number" name="Username" required>
+</div>
+
+<div class="form-group">
+<label>Login Hour</label>
+<input type="number" min="0" max="23" name="Login_Hour" required>
+</div>
+
+<div class="form-group">
+<label>Day of Week</label>
+<select name="Day_Of_Week">
+<option value="0">Monday</option>
+<option value="1">Tuesday</option>
+<option value="2">Wednesday</option>
+<option value="3">Thursday</option>
+<option value="4">Friday</option>
+<option value="5">Saturday</option>
+<option value="6">Sunday</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Login Status</label>
+<select name="Login_Status">
+<option value="1">Success</option>
+<option value="0">Failed</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Failed Attempts</label>
+<input type="number" name="Failed_Attempts" required>
+</div>
+
+<div class="form-group">
+<label>Login Frequency</label>
+<input type="number" name="Login_Frequency" required>
+</div>
+
+<div class="form-group">
+<label>Device</label>
+<select name="Device_Type">
+<option value="0">Desktop</option>
+<option value="1">Laptop</option>
+<option value="2">Mobile</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Browser</label>
+<select name="Browser">
+<option value="0">Chrome</option>
+<option value="1">Firefox</option>
+<option value="2">Edge</option>
+<option value="3">Safari</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Month</label>
+<select name="Month">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Day</label>
+<input type="number" min="1" max="31" name="Day" required>
+</div>
+
+<div class="form-group">
+<label>Weekend</label>
+<select name="Is_Weekend">
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:30px;">
+
+<button type="submit" class="btn">
+
+Predict Login
+
+</button>
+
+</div>
+
+</form>
+
+
+</section>
+
+</body>
+
+</html>

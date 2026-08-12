@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Machine Learning Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🛡 <span>Secure Login ML</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="/">Home</a></li>
+        <li><a href="/predict">Predict</a></li>
+        <li><a class="active" href="/dashboard">Dashboard</a></li>
+        <li><a href="/about">About</a></li>
+
+    </ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>Machine Learning Dashboard</h1>
+
+<p>
+Login Time-Based Detection Analytics
+</p>
+
+</section>
+
+<div class="cards">
+
+<div class="card">
+<h2>{{ total }}</h2>
+<p>Total Logins</p>
+</div>
+
+<div class="card">
+<h2>{{ suspicious }}</h2>
+<p>Suspicious</p>
+</div>
+
+<div class="card">
+<h2>{{ normal }}</h2>
+<p>Normal</p>
+</div>
+
+<div class="card">
+<h2>{{ accuracy }}%</h2>
+<p>Accuracy</p>
+</div>
+
+</div>
+
+<section class="dashboard-section">
+
+<h2>Model Performance</h2>
+
+<div class="chart-grid">
+
+<div class="chart-card">
+
+<h3>Confusion Matrix</h3>
+
+<img src="{{ url_for('static', filename='images/confusion_matrix.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Feature Importance</h3>
+
+<img src="{{ url_for('static', filename='images/feature_importance.png') }}">
+
+</div>
+
+</div>
+
+<h2>Exploratory Data Analysis</h2>
+
+<div class="chart-grid">
+
+<div class="chart-card">
+
+<h3>Login Hour</h3>
+
+<img src="{{ url_for('static', filename='images/login_hour_distribution.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Device Distribution</h3>
+
+<img src="{{ url_for('static', filename='images/device_distribution.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Browser Distribution</h3>
+
+<img src="{{ url_for('static', filename='images/browser_distribution.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Class Distribution</h3>
+
+<img src="{{ url_for('static', filename='images/class_distribution.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Login Frequency</h3>
+
+<img src="{{ url_for('static', filename='images/login_frequency_distribution.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Failed Attempts</h3>
+
+<img src="{{ url_for('static', filename='images/failed_attempts_distribution.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Time Period</h3>
+
+<img src="{{ url_for('static', filename='images/time_period_distribution.png') }}">
+
+</div>
+
+<div class="chart-card">
+
+<h3>Correlation Heatmap</h3>
+
+<img src="{{ url_for('static', filename='images/correlation_heatmap.png') }}">
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+
+</html>

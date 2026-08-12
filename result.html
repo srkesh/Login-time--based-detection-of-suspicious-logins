@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🛡 <span>Secure Login ML</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="/">Home</a></li>
+        <li><a class="active" href="/predict">Predict</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/about">About</a></li>
+
+    </ul>
+
+</nav>
+
+
+<section class="hero">
+
+    <h1>Prediction Result</h1>
+
+    <br>
+
+    <div class="result-card">
+
+{% if prediction == "Suspicious Login" %}
+
+<div class="status danger">
+    🔴 Suspicious Login Detected
+</div>
+
+{% else %}
+
+<div class="status safe">
+    🟢 Normal Login
+</div>
+
+{% endif %}
+
+<div class="result-section">
+
+    <h3>Risk Score</h3>
+
+    <div class="score">
+        {{ risk_score }}%
+    </div>
+
+</div>
+
+<div class="result-section">
+
+    <h3>Risk Level</h3>
+
+    <div class="level">
+        {{ risk_level }}
+    </div>
+
+</div>
+
+<div class="result-section">
+
+    <h3>Reason(s)</h3>
+
+    <ul>
+
+    {% for reason in reasons %}
+
+        <li>{{ reason }}</li>
+
+    {% endfor %}
+
+    </ul>
+
+</div>
+
+<div class="result-section">
+
+<h3>Recommended Action</h3>
+
+{% if prediction == "Suspicious Login" %}
+
+<ul>
+
+<li>Verify user identity</li>
+
+<li>Enable Multi-Factor Authentication</li>
+
+<li>Notify Security Administrator</li>
+
+<li>Review login activity</li>
+
+</ul>
+
+{% else %}
+
+<ul>
+
+<li>Login appears safe.</li>
+
+<li>User access can be granted.</li>
+
+</ul>
+
+{% endif %}
+
+</div>
+
+<a href="/predict" class="btn">
+
+Predict Another Login
+
+</a>
+
+</div>
+
+
+   
+
+</section>
+
+</body>
+
+</html>
